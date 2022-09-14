@@ -12,11 +12,11 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @ToString
-@NoArgsConstructor
+@NoArgsConstructor//디폴트 생성자
 public class Article {
 
-    @Id
-    @GeneratedValue
+    @Id //대표값지정
+    @GeneratedValue //자동생성 어노테이션
     private Long id;
 
     @Column

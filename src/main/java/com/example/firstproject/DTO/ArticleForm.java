@@ -9,10 +9,11 @@ import lombok.ToString;
 public class ArticleForm {
 
     private String title;
-    private String contents;
+     private String contents;
 
 
     public Article toEntity() {
+
         return new Article(null, title, contents);
     }
 }
