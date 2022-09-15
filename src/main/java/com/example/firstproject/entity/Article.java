@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -18,7 +15,7 @@ import javax.persistence.Id;
 public class Article {
 
     @Id //대표값지정
-    @GeneratedValue //자동생성 어노테이션
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//자동생성 어노테이션
     private Long id;
 
     @Column
@@ -27,4 +24,10 @@ public class Article {
     @Column
     private String contents;
 
+    public void patch(Article article) {
+        if(article.title != null)
+            this.title = article.title;
+        if(article.contents != null)
+            this.contents = article.contents;
+    }
 }
